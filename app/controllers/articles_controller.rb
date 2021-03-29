@@ -45,6 +45,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def public_count
+    @article = Article.count
+  end
+
   private
   def article_params
     params.require(:article).permit(:user_id,:title, :body, :status)
