@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2021_03_29_004934) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
   end
 
   create_table "comments", force: :cascade do |t|
