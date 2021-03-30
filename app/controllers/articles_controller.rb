@@ -49,6 +49,11 @@ class ArticlesController < ApplicationController
     @article = Article.count
   end
 
+  def avg_rating
+    @article = Article.find(params[:article_id])
+    @article.comments.average(:rating).to_i
+  end
+
   private
   def article_params
     params.require(:article).permit(:user_id,:title, :body, :status)

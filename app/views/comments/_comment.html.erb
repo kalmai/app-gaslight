@@ -9,6 +9,12 @@
 </p>
 
 <p>
+  <strong>Rating:</strong>
+  <%= comment.rating %>
+</p>
+
+
+<p>
 <%= link_to "Destroy Comment", [comment.article, comment],
   method: :delete,
   data: { confirm: "are you sure you want to delete #{comment.body}" } %>
