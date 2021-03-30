@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @user = User.find_by(username: params[:id])
   end
 
   def show
@@ -43,15 +44,6 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to root_path
-  end
-
-  def public_count
-    @article = Article.count
-  end
-
-  def avg_rating
-    @article = Article.find(params[:article_id])
-    @article.comments.average(:rating).to_i
   end
 
   private
