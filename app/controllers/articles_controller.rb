@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @user = User.find(session[:current_user_id]) unless session[:current_user_id].nil?
   end
 
   def new

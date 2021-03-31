@@ -1,7 +1,7 @@
 <p>
   <strong>Rating:</strong>
   <% comment.rating.times do %>
-    <%= image_tag 'prayer.png' %>
+    <%= image_tag 'star.svg.png' %>
   <% end %>
 </p>
 
@@ -15,9 +15,11 @@
   <%= comment.body %>
 </p>
 
+<% if User.logged_in?(session[:current_user_id]) && User.author?(session[:current_user_id], comment.user_id) %>
 
-<p>
-<%= link_to "Destroy Comment", [comment.article, comment],
-  method: :delete,
-  data: { confirm: "are you sure you want to delete #{comment.body}" } %>
-</p>
+  <p>
+    <%= link_to "Destroy Comment", [comment.article, comment],
+      method: :delete,
+      data: { confirm: "are you sure you want to delete #{comment.body}" } %>
+  </p>
+<% end %>

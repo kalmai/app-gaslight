@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Description
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
+* Ruby version: 2.7.2
 
 * Configuration
+```
+$ git clone https://github.com/kalmai/app-gaslight.git
+$ cd myapp/
+$ bundler install
+$ rails server
+```
+(http://localhost:3000/)
 
-* Database creation
+* Database creation: 
+```
+$ cd myapp/
+$ bin/rails db:setup
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Deployment instructions:
+```
+$ cd myapp/
+$ heroku login
+$ heroku pg:reset
+$ heroku rake db:create
+```
 
 * ...

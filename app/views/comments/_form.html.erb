@@ -1,17 +1,18 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :rating %><br>
-    <%= form.select :rating, [1,2,3,4,5], selected: 5 %>
-  </p>
+<% if User.logged_in?(session[:current_user_id]) %>
+  <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+    <p>
+      <%= form.label :rating %><br>
+      <%= form.select :rating, [1,2,3,4,5], selected: 5 %>
+    </p>
 
 
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
+    <p>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
 <% end %>
-
