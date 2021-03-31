@@ -1,24 +1,22 @@
-<% if User.logged_in?(session[:current_user_id]) && User.author?(session[:current_user_id], @article.author_id)%>
-  <%= form_with model: @article do |form| %>
+<%= form_with model: @article do |form| %>
 
-    <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      <% article.errors.full_messages_for(:title).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
-    <div>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-      <% article.errors.full_messages_for(:body).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>

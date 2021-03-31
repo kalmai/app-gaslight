@@ -2,5 +2,7 @@
 
 <h1>Edit Article</h1>
 
-<%= render "form", article: @article %>
+<% if User.logged_in?(session[:current_user_id]) && User.author?(session[:current_user_id], @article.author_id)%>
+  <%= render "form", article: @article %>
+<% end %>
 
