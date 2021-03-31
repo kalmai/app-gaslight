@@ -1,12 +1,4 @@
 <%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :user_id %><br>
-    <%= form.number_field :user_id %>
-    <% article.errors.full_messages_for(:user_id).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
 
   <div>
     <%= form.label :title %><br>
@@ -22,11 +14,6 @@
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
-  </div>
-
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
   </div>
 
   <div>

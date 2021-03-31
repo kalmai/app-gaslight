@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       session[:current_user_username] = @user.username
       redirect_to root_url
     else
-      render :edit
+      redirect_to edit_user_url
     end
   end
 
@@ -46,13 +46,17 @@ class UsersController < ApplicationController
       session[:current_user_username] = @user.username
       redirect_to root_url
     else
-      render :new
+      redirect_to new_user_url
     end
   end
 
   def destroy
-    @user = User.find(session[:current_user_id])
-    @user.destroy
+    #@user = User.find(session[:current_user_id])
+    Article.where(author_id: session[:current_user_id]).destroy_all
+    Comment.where(user_id: session[:current_user_id]).destroy_all
+    #User.where(id: session[:current_user_id]).destroy_all
+    #@user.destroy
+    User.delete(session[:current_user_id])
     redirect_to root_url
   end
 
