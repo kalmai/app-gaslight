@@ -9,7 +9,7 @@ This application uses rails to CRUD articles, users, and comments hosted on hero
 * Configuration
 ```
 $ git clone https://github.com/kalmai/app-gaslight.git
-$ cd myapp/
+$ cd app-gaslight/
 $ bundler install
 $ rails server
 ```
