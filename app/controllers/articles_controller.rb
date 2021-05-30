@@ -45,6 +45,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def random
+    redirect_to Article.random
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :body)

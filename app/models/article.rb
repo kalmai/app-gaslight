@@ -11,5 +11,11 @@ class Article < ApplicationRecord
     comments.average(:rating).to_i
   end
 
+  def self.random
+    # return a random article
+    Article.all.sample
+  end
+
+
 end
 

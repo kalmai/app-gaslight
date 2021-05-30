@@ -14,6 +14,26 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end 
 
+  def upvote
+    user_id = User.find(session[:current_user_id]).id
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    @comment.upvoter(user_id)
+
+    redirect_to article_path(@article)
+  end
+
+  def downvote
+    user_id = User.find(session[:current_user_id]).id
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    @comment.downvoter(user_id)
+
+    redirect_to article_path(@article)
+  end
+
+
+
 
   private
   def comment_params

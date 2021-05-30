@@ -12,6 +12,16 @@ module Visible
     def author?(current_user_id, author_id)
       current_user_id == author_id
     end
+
+    def random_article_id
+      arr = Article.all.each.with_object([]) { |a, array| array.push(a.id) }
+      arr.sample
+    end
+
+    def upvote(user_id, comment)
+      comment.upvote.push(user_id)
+      comment.save
+    end
   end
 end
 

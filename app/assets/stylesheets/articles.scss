@@ -45,7 +45,7 @@ table {
 
 
 
-img {
+img{
   width: 12px;
   height: auto;
 }
@@ -53,6 +53,17 @@ img {
 tr:nth-child(even) {
   background: white;
 }
+
+input[type=image]{
+  width: 12px;
+  height: auto;
+}
+
+form {
+  display: inline;
+}
+
+
 
 // #gutter1{
 //   grid-area: gutter1;
